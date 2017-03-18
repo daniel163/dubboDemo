@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
+
+    <!-- 自动扫描的包名 -->
+    <context:component-scan base-package="com"/>
+    <!-- 默认的注解映射的支持 -->
+    <mvc:annotation-driven/>
+
+<!--    &lt;!&ndash; 消费方应用名，用于计算依赖关系，不是匹配条件，不要与提供方一样 &ndash;&gt;
+    <dubbo:application name="nickzhang_consumer" />
+
+    &lt;!&ndash; 使用zookeeper注册中心暴露服务地址 &ndash;&gt;
+    <dubbo:registry address="zookeeper://127.0.0.1:2181" />
+
+    &lt;!&ndash; 组播注册 &ndash;&gt;
+    &lt;!&ndash; <dubbo:registry address="multicast://224.5.6.7:1234" /> &ndash;&gt;
+
+    &lt;!&ndash; 生成远程服务代理，可以像使用本地bean一样使用userService &ndash;&gt;
+    <dubbo:reference id="userService" interface="com.dubbo.demo.servicei.UserService" />-->
+
+    <!-- 支持返回json -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+</beans>
